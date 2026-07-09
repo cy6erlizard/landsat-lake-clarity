@@ -5,6 +5,19 @@ clarity) from Landsat surface reflectance for Adirondack lakes, 1984 to present,
 and a validation that measures it the way a lake manager would actually use it:
 **can it track one lake through time?**
 
+The pipeline runs in Google Colab, one notebook per phase. Each notebook has an
+Open in Colab badge; run them in order 01 through 07.
+
+| Notebook | Phase |
+| --- | --- |
+| [01 audit](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/01_audit.ipynb) | Land EDI data on Drive, audit it |
+| [02 select lakes](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/02_select_lakes.ipynb) | Choose target lakes, measure the variance ceiling |
+| [03 features](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/03_features.ipynb) | Build training set, interrogate features |
+| [04 train](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/04_train.ipynb) | Train the regional model, attack it |
+| [05 predict](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/05_predict.ipynb) | Predict 1984-present, reconcile Collection 1 and 2 |
+| [06 validate](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/06_validate.ipynb) | Validate against Water Quality Portal field data |
+| [07 deliver](https://colab.research.google.com/github/cy6erlizard/landsat-lake-clarity-adirondack/blob/main/notebooks/07_deliver.ipynb) | Assemble the deliverable CSV and report |
+
 This replicates the method of Piper, Glines & Rose (2024, *Ecology*), who built a
 Wisconsin-specific model, and applies it to New York.
 
