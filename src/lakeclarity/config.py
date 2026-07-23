@@ -21,8 +21,14 @@ DATA_DIR = Path(os.environ.get("LAKECLARITY_DATA", PROJECT_ROOT / "data"))
 RAW_DIR = DATA_DIR / "raw"
 INTERIM_DIR = DATA_DIR / "interim"
 PROCESSED_DIR = DATA_DIR / "processed"
-FIGURE_DIR = PROJECT_ROOT / "reports" / "figures"
-TABLE_DIR = PROJECT_ROOT / "reports" / "tables"
+# Reports live under DATA_DIR, not the repo, because they are handoffs between
+# notebooks (e.g. notebook 02 writes T05_target_lakes.csv, notebook 03 reads it).
+# In Colab the repo is a shallow clone that is wiped between notebook runtimes, so
+# anything written inside it is lost; only DATA_DIR (the Drive mount) survives. The
+# report-critical figures and tables are copied into the repo at Phase 7 for the
+# portfolio.
+FIGURE_DIR = DATA_DIR / "reports" / "figures"
+TABLE_DIR = DATA_DIR / "reports" / "tables"
 
 for _d in (RAW_DIR, INTERIM_DIR, PROCESSED_DIR, FIGURE_DIR, TABLE_DIR):
     _d.mkdir(parents=True, exist_ok=True)
